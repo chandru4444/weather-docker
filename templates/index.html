@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#1e3c72,#2a5298);
+        }
+
+        .container{
+            width:400px;
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            margin-bottom:20px;
+            color:#1e3c72;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:none;
+            outline:none;
+            border-radius:10px;
+            background:#f1f1f1;
+            margin-bottom:15px;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:10px;
+            background:#1e3c72;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#2a5298;
+        }
+
+        .weather-box{
+            margin-top:25px;
+        }
+
+        .weather-box h2{
+            color:#333;
+            margin-bottom:10px;
+        }
+
+        .weather-box p{
+            margin:8px 0;
+            font-size:18px;
+            color:#555;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>🌤 Weather App</h1>
+
+        <form action="/weather">
+            <input type="text" name="city" placeholder="Enter city name" required>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        {% if weather %}
+
+        <div class="weather-box">
+            <h2>{{ weather.city }}</h2>
+
+            <p>🌡 Temperature: {{ weather.temperature }} °C</p>
+
+            <p>☁ Description: {{ weather.description }}</p>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
