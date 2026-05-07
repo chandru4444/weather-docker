@@ -8,7 +8,7 @@ API_KEY="9fcaadd2c9463b0e25e553bc94ef5248"
 @app.route('/')
 def home():
     return '''
-    <h1>Weather App</h1>
+    <h1>Weather Application</h1>
 
     <form action="/weather">
         <input type="text" name="city" placeholder="Enter city">
